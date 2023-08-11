@@ -12,18 +12,18 @@ pipeline {
         stage('Run Script') {
             steps {
                 echo 'Running the Python script...'
-                sh 'python3 script.py'
+                sh 'python script.py'
+            }
+        }
+        
+        stage('Clean Up Workspace') {
+            steps {
+                echo 'Cleaning up workspace...'
+                cleanWs()
             }
         }
     }
-
-         stage('clean up Workspace') {
-          steps  {
-             echo 'Cleaning up workspace...'
-             cleanWs()
-            }
-        }
-    }
+    
     post {
         success {
             echo 'Pipeline executed successfully!'
