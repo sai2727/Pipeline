@@ -16,7 +16,14 @@ pipeline {
             }
         }
     }
-    
+
+         stage('clean up Workspace') {
+          steps  {
+             echo 'Cleaning up workspace...'
+             cleanWs()
+            }
+        }
+    }
     post {
         success {
             echo 'Pipeline executed successfully!'
